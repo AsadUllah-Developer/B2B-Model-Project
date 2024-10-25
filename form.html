@@ -4,192 +4,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bid Submission Form</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Assuming you're using this for your general styles -->
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* Basic Reset */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Arial', sans-serif; /* Font family */
+        }
+
+        /* Body Style */
         body {
-            font-family: Arial, sans-serif; /* Ensure the font matches the site */
+            background-color: #f9f9f9; /* Light background color */
+            color: #333; /* Text color */
+            line-height: 1.6; /* Line height for readability */
         }
 
-        h2 {
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
+        /* Header Style */
+        header {
+            background-color: #007bff; /* Header background color */
+            padding: 10px 20px; /* Header padding */
+            width: 100%; /* Full width for header */
+            position: relative; /* Positioning for header */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
         }
 
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+        .logo {
+            font-size: 24px; /* Logo font size */
+            color: #ffffff; /* Logo text color */
+            font-weight: bold; /* Bold logo */
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .navbar {
+            display: flex; /* Flexbox for navigation */
+            justify-content: space-between; /* Space between logo and menu */
+            align-items: center; /* Center items vertically */
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #333;
+        /* Navigation Menu Style */
+        .menu {
+            display: flex; /* Horizontal menu */
         }
 
-        input[type="text"],
-        input[type="number"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+        .menu li {
+            margin-left: 20px; /* Space between menu items */
         }
 
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #007bff; /* Match the blue color of the header/footer */
-            outline: none;
+        .menu a {
+            text-decoration: none; /* Remove underline */
+            color: #ffffff; /* Menu link color */
+            padding: 10px; /* Padding for clickable area */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth background transition */
         }
 
-        button[type="submit"] {
-            display: inline-block;
-            width: 100%;
-            padding: 12px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
+        .menu a:hover {
+            background-color: #0056b3; /* Darker background on hover */
         }
 
-        button[type="submit"]:hover {
-            background-color: #0056b3;
+        /* Form Section Style */
+        .form-container {
+            max-width: 100%; /* Full width for form */
+            margin: 20px auto; /* Center form */
+            padding: 20px; /* Padding inside form */
+            background-color: #ffffff; /* Form background color */
+            border: 1px solid #ddd; /* Border for form */
+            border-radius: 5px; /* Rounded corners for form */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow */
         }
 
-        /* Centering the form section */
-        section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 80vh;
-            padding: 0 20px; /* Add padding for small screens */
+        .form-container h1 {
+            color: #007bff; /* Form title color */
+            text-align: center; /* Center align title */
+            margin-bottom: 20px; /* Space below title */
         }
 
-        /* Styling the footer */
+        .form-container label {
+            display: block; /* Block display for labels */
+            margin: 10px 0 5px; /* Margin for labels */
+        }
+
+        .form-container input, 
+        .form-container select, 
+        .form-container textarea {
+            width: 100%; /* Full width for inputs */
+            padding: 10px; /* Padding for inputs */
+            border: 1px solid #ddd; /* Border for inputs */
+            border-radius: 5px; /* Rounded corners for inputs */
+            margin-bottom: 15px; /* Space below inputs */
+        }
+
+        .form-container button {
+            background-color: #007bff; /* Button background color */
+            color: #ffffff; /* Button text color */
+            padding: 10px; /* Padding for button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners for button */
+            cursor: pointer; /* Pointer cursor on hover */
+            width: 100%; /* Full width for button */
+            transition: background-color 0.3s; /* Smooth background transition */
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3; /* Darker background on button hover */
+        }
+
+        /* Footer Style */
         footer {
-            background-color: #0056b3; /* Match the footer color */
-            padding: 10px;
-            text-align: center;
-            color: white;
-            position: relative;
-            width: 100%;
-            bottom: 0;
+            text-align: center; /* Center align footer text */
+            padding: 10px; /* Padding for footer */
+            background-color: #007bff; /* Footer background color */
+            color: #ffffff; /* Footer text color */
+            width: 100%; /* Full width for footer */
+            position: relative; /* Positioning for footer */
+            bottom: 0; /* Stick to bottom */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            form {
-                padding: 15px; /* Reduce padding for smaller screens */
+            .navbar {
+                flex-direction: column; /* Stack items on small screens */
+                align-items: flex-start; /* Align left */
             }
 
-            h2 {
-                font-size: 1.8rem; /* Reduce font size for smaller screens */
+            .menu {
+                flex-direction: column; /* Stack menu items */
+                margin-top: 10px; /* Space above menu */
             }
 
-            input[type="text"],
-            input[type="number"],
-            select,
-            textarea {
-                font-size: 14px; /* Smaller font size for inputs */
-            }
-
-            button[type="submit"] {
-                font-size: 14px; /* Smaller button font size */
-            }
-        }
-
-        @media (max-width: 480px) {
-            form {
-                width: 100%; /* Ensure the form takes full width */
-            }
-
-            h2 {
-                font-size: 1.5rem; /* Further reduce font size */
+            .menu li {
+                margin-left: 0; /* Remove left margin */
+                margin-bottom: 10px; /* Space below menu items */
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section (same as index.html) -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                B2B Platform
-            </div>
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="form.html">Bid Submitting</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">Buyer/Seller Central</a></li>
-                <li><a href="#">Messaging</a></li>
-                <li><a href="#">Sign In</a></li>
-                <li><a href="#">Sign Up</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- Header Section -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            B2B Platform
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="form.html">Bid Submitting</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Buyer/Seller Central</a></li>
+            <li><a href="#">Messaging</a></li>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">Sign Up</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Bid Submission Form -->
-    <section>
-        <form action="submit_bid.php" method="POST">
-            <h2>Submit Your Bid</h2>
+<!-- Form Section -->
+<div class="form-container">
+    <h1>Bid Submission Form</h1>
+    <form>
+        <label for="product-name">Product Name</label>
+        <input type="text" id="product-name" name="product-name" required>
 
-            <div class="form-group">
-                <label for="product">Product Name:</label>
-                <input type="text" id="product" name="product" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" required>
-            </div>
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="pharmaceuticals">Pharmaceuticals</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+            <option value="food">Food</option>
+        </select>
 
-            <div class="form-group">
-                <label for="price">Bid Price:</label>
-                <input type="text" id="price" name="price" required>
-            </div>
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" required>
 
-            <div class="form-group">
-                <label for="category">Category:</label>
-                <select id="category" name="category" required>
-                    <option value="pharmaceuticals">Pharmaceuticals</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="groceries">Groceries</option>
-                    <option value="hardware">Hardware</option>
-                    <!-- Add other categories as needed -->
-                </select>
-            </div>
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price" required>
 
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="4"></textarea>
-            </div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
 
-            <div class="form-group">
-                <button type="submit">Submit Bid</button>
-            </div>
-        </form>
-    </section>
+        <button type="submit">Submit Bid</button>
+    </form>
+</div>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 B2B Platform. All rights reserved.</p>
-    </footer>
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 B2B Platform. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
