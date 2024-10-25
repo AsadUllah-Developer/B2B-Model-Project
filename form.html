@@ -4,7 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bid Submission Form</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Ensure you're using the same CSS file -->
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming you're using this for your general styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Ensure the font matches the site */
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff; /* Match the blue color of the header/footer */
+            outline: none;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Centering the form section */
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        /* Styling the footer */
+        footer {
+            background-color: #0056b3; /* Match the footer color */
+            padding: 10px;
+            text-align: center;
+            color: white;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,10 +97,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <!-- If your logo is text -->
                 B2B Platform
-                <!-- If your logo is an image, use this instead:
-                <img src="logo.png" alt="B2B Platform Logo"> -->
             </div>
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
@@ -31,8 +113,9 @@
 
     <!-- Bid Submission Form -->
     <section>
-        <h2>Submit Your Bid</h2>
         <form action="submit_bid.php" method="POST">
+            <h2>Submit Your Bid</h2>
+
             <div class="form-group">
                 <label for="product">Product Name:</label>
                 <input type="text" id="product" name="product" required>
